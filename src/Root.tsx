@@ -1,13 +1,23 @@
 import {Composition} from 'remotion';
-import {HelloWorld, myCompSchema} from './HelloWorld';
-import {Logo, myCompSchema2} from './HelloWorld/Logo';
-
+import {Slideshow} from './SildeShow/Slideshow';
+import GLTransitions from "gl-transitions";
 // Each <Composition> is an entry in the sidebar!
 
 export const RemotionRoot: React.FC = () => {
+
+
+	// const photos = ['img1.png', 'img2.png'];
+	// const photos = ['https://files.shoootin.com/emails/header4.png', 'https://files.shoootin.com/emails/header3.png'];
+	// const photos = [image1, image2];
+	//
+	// const [imageOne, imageTwo] = useLoader(THREE.TextureLoader, photos);
+	//
+
+	console.log(GLTransitions);
+
 	return (
 		<>
-			<Composition
+			{/*<Composition
 				// You can take the "id" to render a video:
 				// npx remotion render src/index.ts <id> out/video.mp4
 				id="HelloWorld"
@@ -25,9 +35,20 @@ export const RemotionRoot: React.FC = () => {
 					logoColor1: '#91EAE4',
 					logoColor2: '#86A8E7',
 				}}
+			/>*/}
+			<Composition
+				id="MySlideshow"
+				component={Slideshow}
+				durationInFrames={6700}
+				fps={30}
+				width={900}
+				height={600}
+				// defaultProps={{
+				// 	photos: images
+				// }}
 			/>
 			{/* Mount any React component to make it show up in the sidebar and work on it individually! */}
-			<Composition
+			{/*<Composition
 				id="OnlyLogo"
 				component={Logo}
 				durationInFrames={150}
@@ -39,7 +60,7 @@ export const RemotionRoot: React.FC = () => {
 					logoColor1: '#91dAE2' as const,
 					logoColor2: '#86A8E7' as const,
 				}}
-			/>
+			/>*/}
 		</>
 	);
 };
